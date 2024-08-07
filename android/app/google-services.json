@@ -7,6 +7,25 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:720234428882:android:74c7bbd0b5c61bf364700b",
+        "android_client_info": {
+          "package_name": "com.example.tramatch_test"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJ6-VHNhlxOE-3uAj4ZtasPW3Srl_cCJI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:720234428882:android:b9e3662e1bcb0d6a64700b",
         "android_client_info": {
           "package_name": "com.tramatchtest.app"

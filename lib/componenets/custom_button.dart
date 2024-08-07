@@ -10,29 +10,31 @@ class CustomButton extends StatelessWidget {
   final String text;
   final Color textColor;
   final double textSize;
-  final String? textFamily;
+  final FontWeight? textFontWeight;
   final String? iconPath;
-  final Color? iconColor;
   final double? iconWidth;
+  final Color iconColor;
   final double? iconHeight;
   final bool hasSuffixIcon;
+  final bool hasLeadingIcon;
   final Color backgroundColor;
+  final bool useLeadingImage;
   final Color? borderColor;
   final double borderRadius;
   final double height;
-  final double? width;
   final void Function()? onPressed;
   final bool isLoading;
   const CustomButton({
     required this.text,
     required this.textColor,
+    this.textFontWeight = FontWeight.w600,
     this.textSize = 16,
-    this.textFamily,
     this.iconPath,
-    this.iconColor,
     this.iconWidth = 16,
+    this.iconColor = ColorConstants.textHeader,
     this.iconHeight = 16,
-    this.width,
+    this.hasLeadingIcon = false,
+    this.useLeadingImage = false,
     this.hasSuffixIcon = false,
     required this.backgroundColor,
     this.borderColor,
@@ -47,7 +49,7 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: height,
-      width: width ?? Sizes.screenWidth(context),
+      width: Sizes.screenWidth(context),
       child: ElevatedButton(
         style: ButtonStyle(
           side: WidgetStateProperty.all<BorderSide>(
@@ -82,27 +84,42 @@ class CustomButton extends StatelessWidget {
             : Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
+                  if (hasLeadingIcon)
+                    (useLeadingImage == false)
+                        ? SvgPicture.asset(
+                            iconPath.toString(),
+                            width: iconWidth,
+                            height: iconHeight,
+                            colorFilter: ColorFilter.mode(
+                              iconColor,
+                              BlendMode.srcIn,
+                            ),
+                          )
+                        : Image.asset(
+                            iconPath.toString(),
+                            width: iconWidth,
+                            height: iconHeight,
+                          ),
+                  if (hasLeadingIcon) const Gap(8),
                   Text(
                     text,
                     style: TextStyle(
                       color: textColor,
                       fontSize: textSize,
-                      fontFamily: textFamily,
-                      fontWeight: FontWeight.w600,
+                      fontWeight: textFontWeight,
                     ),
                   ),
-                  const Gap(8),
-                  (hasSuffixIcon)
-                      ? SvgPicture.asset(
-                          iconPath.toString(),
-                          width: iconWidth,
-                          height: iconHeight,
-                          colorFilter: ColorFilter.mode(
-                            iconColor ?? ColorConstants.textHeader,
-                            BlendMode.srcIn,
-                          ),
-                        )
-                      : const Gap(0),
+                  if (hasSuffixIcon) const Gap(8),
+                  if (hasSuffixIcon)
+                    SvgPicture.asset(
+                      iconPath.toString(),
+                      width: iconWidth,
+                      height: iconHeight,
+                      colorFilter: ColorFilter.mode(
+                        iconColor,
+                        BlendMode.srcIn,
+                      ),
+                    )
                 ],
               ),
       ),

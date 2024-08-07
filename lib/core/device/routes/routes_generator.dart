@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:tramatch_test/features/auth/presentation/view/signin_view.dart';
+import 'package:tramatch_test/features/auth/presentation/view/signup_view.dart';
+import 'package:tramatch_test/features/auth/presentation/view/splash_view.dart';
+import 'package:tramatch_test/features/task/presentation/view/tasklist_page.dart';
 
-import '../../../features/home/presentation/pages/post_view.dart';
+import '../../../features/auth/presentation/view/welcome_view.dart';
+import '../../../features/task/presentation/view/taskcreate_page.dart';
+import '../../../features/task/presentation/view/taskdetail_page.dart';
+import '../../../features/task/presentation/view/taskedit_page.dart';
 import 'routes_manager.dart';
 import 'undefined_route.dart';
 
@@ -8,26 +15,27 @@ class RoutesGenerator {
   RoutesGenerator._();
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
-      // Home  ------------------------------------------------------------------------------------------------------------
-      case RoutesManager.postRoute:
-        return MaterialPageRoute(builder: (context) => const PostView());
-      // case RoutesManager.postDetailRoute:
-      //   return MaterialPageRoute(builder: (context) {
-      //     Map<String, dynamic> args =
-      //         settings.arguments as Map<String, dynamic>;
-      //     return PostDetailView(args: args);
-      //   });
+      //Auth Routes -------------------------------------------------------------------------------------------------------------
+      case RoutesManager.splashRoute:
+        return MaterialPageRoute(builder: (context) => const SplashView());
+      case RoutesManager.welcomeRoute:
+        return MaterialPageRoute(builder: (context) => const WelcomeView());
+      case RoutesManager.signInRoute:
+        return MaterialPageRoute(builder: (context) => const SignInView());
+      case RoutesManager.signUpRoute:
+        return MaterialPageRoute(builder: (context) => const SignUpView());
 
-      // case RoutesManager.postCreateRoute:
-      //   return MaterialPageRoute(builder: (context) => const PostCreateView());
-      // case RoutesManager.postEditRoute:
-      //   return MaterialPageRoute(builder: (context) {
-      //     Map<String, dynamic> args =
-      //         settings.arguments as Map<String, dynamic>;
-      //     return PostEditView(args: args);
-      //   });
+      //Task Routes -------------------------------------------------------------------------------------------------------------
+      case RoutesManager.tasklistRoute:
+        return MaterialPageRoute(builder: (context) => const TaskListView());
+      case RoutesManager.taskDetailRoute:
+        return MaterialPageRoute(builder: (context) => const TaskDetailView());
+      case RoutesManager.taskEditRoute:
+        return MaterialPageRoute(builder: (context) => const TaskEditView());
+      case RoutesManager.taskCreateRoute:
+        return MaterialPageRoute(builder: (context) => const TaskCreateView());
 
-      //Default
+      //Default Route -------------------------------------------------------------------------------------------------------------
       default:
         return MaterialPageRoute(builder: (context) => const UndefinedRoute());
     }

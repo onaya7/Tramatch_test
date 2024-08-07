@@ -51,7 +51,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyAJ6-VHNhlxOE-3uAj4ZtasPW3Srl_cCJI',
-    appId: '1:720234428882:android:b9e3662e1bcb0d6a64700b',
+    appId: '1:720234428882:android:74c7bbd0b5c61bf364700b',
     messagingSenderId: '720234428882',
     projectId: 'tramatch-test',
     storageBucket: 'tramatch-test.appspot.com',
@@ -65,4 +65,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'tramatch-test.appspot.com',
     iosBundleId: 'com.example.tramatchTest',
   );
+
 }

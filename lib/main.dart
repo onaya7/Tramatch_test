@@ -1,28 +1,17 @@
-import 'package:device_preview/device_preview.dart';
-import 'package:flutter/foundation.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tramatch_test/firebase_options.dart';
 import 'package:tramatch_test/injection_container.dart' as si;
 
 import 'app.dart';
-import 'features/home/presentation/bloc/home_bloc.dart';
-import 'injection_container.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   si.init();
   runApp(
-    DevicePreview(
-      enabled: !kReleaseMode,
-      builder: (context) {
-        return MultiBlocProvider(
-          providers: [
-            BlocProvider<HomeBloc>(
-              create: (context) => getIt.call<HomeBloc>(),
-            ),
-          ],
-          child: const MyApp(),
-        );
-      },
-    ),
+    const MyApp(),
   );
 }

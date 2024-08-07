@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "720234428882",
+    "project_id": "tramatch-test",
+    "storage_bucket": "tramatch-test.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:720234428882:android:b9e3662e1bcb0d6a64700b",
+        "android_client_info": {
+          "package_name": "com.tramatchtest.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJ6-VHNhlxOE-3uAj4ZtasPW3Srl_cCJI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

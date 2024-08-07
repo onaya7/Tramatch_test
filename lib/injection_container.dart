@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
+import 'package:tramatch_test/features/task/presentation/bloc/task_bloc.dart';
+
+import 'features/auth/presentation/bloc/auth_bloc.dart';
 
 final getIt = GetIt.instance;
 
@@ -18,8 +21,11 @@ void init() {
   // getIt.registerLazySingleton<HomeRepository>(
   //     () => HomeRepositoryImpl(getIt<HomeRemoteDataSource>()));
 
-  // //HomeBloc
-  // getIt.registerLazySingleton<HomeBloc>(() => HomeBloc());
+  //HomeBloc
+  getIt.registerLazySingleton<AuthBloc>(() => AuthBloc());
+
+  //TaskBloc
+  getIt.registerLazySingleton<TaskBloc>(() => TaskBloc());
 
   // //UseCases ----------------------------------------------
   // getIt

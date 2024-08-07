@@ -3,11 +3,12 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:toastification/toastification.dart';
+import 'package:tramatch_test/features/auth/presentation/bloc/auth_bloc.dart';
+import 'package:tramatch_test/features/task/presentation/bloc/task_bloc.dart';
 
 import 'core/device/routes/routes_generator.dart';
 import 'core/device/routes/routes_manager.dart';
 import 'core/device/themes/themes.dart';
-import 'features/home/presentation/bloc/home_bloc.dart';
 import 'injection_container.dart';
 import 'utils/helpers/helpers.dart';
 
@@ -18,11 +19,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-         BlocProvider<HomeBloc>(
-          create: (context) => getIt.call<HomeBloc>(),
+        BlocProvider<AuthBloc>(
+          create: (context) => getIt.call<AuthBloc>(),
         ),
-      ], child: 
-        DevicePreview(
+        BlocProvider<TaskBloc>(
+          create: (context) => getIt.call<TaskBloc>(),
+        ),
+      ],
+      child: DevicePreview(
           enabled: !kReleaseMode,
           builder: (context) {
             return ToastificationWrapper(
@@ -38,10 +42,7 @@ class MyApp extends StatelessWidget {
                 navigatorKey: Helpers.navigatorKey,
               ),
             );
-          }
-        ),
-    
+          }),
     );
   }
 }
-

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:tramatch_test/features/auth/presentation/view/signin_view.dart';
 import 'package:tramatch_test/features/auth/presentation/view/signup_view.dart';
 import 'package:tramatch_test/features/auth/presentation/view/splash_view.dart';
@@ -21,19 +22,49 @@ class RoutesGenerator {
       case RoutesManager.welcomeRoute:
         return MaterialPageRoute(builder: (context) => const WelcomeView());
       case RoutesManager.signInRoute:
-        return MaterialPageRoute(builder: (context) => const SignInView());
+        return PageTransition(
+          type: PageTransitionType.rightToLeft,
+          duration: const Duration(milliseconds: 300),
+          child: const SignInView(),
+        );
       case RoutesManager.signUpRoute:
-        return MaterialPageRoute(builder: (context) => const SignUpView());
-
+        return PageTransition(
+          type: PageTransitionType.rightToLeft,
+          duration: const Duration(milliseconds: 300),
+          child: const SignUpView(),
+        );
       //Task Routes -------------------------------------------------------------------------------------------------------------
       case RoutesManager.tasklistRoute:
-        return MaterialPageRoute(builder: (context) => const TaskListView());
+        return PageTransition(
+          type: PageTransitionType.rightToLeft,
+          duration: const Duration(milliseconds: 300),
+          child: const TaskListView(),
+        );
       case RoutesManager.taskDetailRoute:
-        return MaterialPageRoute(builder: (context) => const TaskDetailView());
+        Map<String, dynamic> args = settings.arguments as Map<String, dynamic>;
+
+        return PageTransition(
+          type: PageTransitionType.rightToLeft,
+          duration: const Duration(milliseconds: 300),
+          child: TaskDetailView(
+            args: args,
+          ),
+        );
       case RoutesManager.taskEditRoute:
-        return MaterialPageRoute(builder: (context) => const TaskEditView());
+        Map<String, dynamic> args = settings.arguments as Map<String, dynamic>;
+        return PageTransition(
+          type: PageTransitionType.rightToLeft,
+          duration: const Duration(milliseconds: 300),
+          child: TaskEditView(
+            args: args,
+          ),
+        );
       case RoutesManager.taskCreateRoute:
-        return MaterialPageRoute(builder: (context) => const TaskCreateView());
+        return PageTransition(
+          type: PageTransitionType.rightToLeft,
+          duration: const Duration(milliseconds: 300),
+          child: const TaskCreateView(),
+        );
 
       //Default Route -------------------------------------------------------------------------------------------------------------
       default:

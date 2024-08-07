@@ -8,6 +8,9 @@ import '../../../../componenets/custom_bottom_btn.dart';
 import '../../../../componenets/custom_inputfield.dart';
 import '../../../../componenets/custom_inputfield_label.dart';
 import '../../../../componenets/custom_scaffold.dart';
+import '../../../../core/device/routes/routes_manager.dart';
+import '../../../../utils/helpers/helpers.dart';
+import '../widgets/alreadyhave.dart';
 
 class SignUpView extends StatefulWidget {
   const SignUpView({super.key});
@@ -194,10 +197,16 @@ class SignupViewState extends State<SignUpView> {
                                   _passwordController.text, value!),
                           onChanged: (value) => checkValidity(),
                         ),
+                        const Gap(20),
+                        AlreadyHave(
+                          text: 'Already have an account?',
+                          authName: 'Sign In',
+                          onPressed: () =>
+                              Helpers.navigateToPage(RoutesManager.signInRoute),
+                        )
                       ],
                     ),
                   ),
-                  const Gap(193),
                 ],
               ),
             ),

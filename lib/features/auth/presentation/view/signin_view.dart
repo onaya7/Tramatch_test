@@ -4,7 +4,6 @@ import 'package:tramatch_test/utils/helpers/helpers.dart';
 
 import '../../../../../gen/assets.gen.dart';
 import '../../../../../utils/constants/color_constants.dart';
-import '../../../../../utils/validators/validators.dart';
 import '../../../../componenets/custom_bottom_btn.dart';
 import '../../../../componenets/custom_inputfield.dart';
 import '../../../../componenets/custom_inputfield_label.dart';
@@ -129,7 +128,6 @@ class SignInViewState extends State<SignInView> {
                           }),
                           action: TextInputAction.next,
                           onChanged: (value) => checkValidity(),
-                       
                         ),
                         const Gap(20),
                         AlreadyHave(
@@ -141,7 +139,6 @@ class SignInViewState extends State<SignInView> {
                       ],
                     ),
                   ),
-                  const Gap(193),
                 ],
               ),
             ),
@@ -161,6 +158,9 @@ class SignInViewState extends State<SignInView> {
 
   onContinue() async {
     if (_formKey.currentState!.validate()) {
+      Helpers.navigateToPage(RoutesManager.tasklistRoute);
+      
+
       // context.read<AuthProvider>().setUserDetails(
       //       firstName: _firstNameController.text,
       //       lastName: _lastNameController.text,

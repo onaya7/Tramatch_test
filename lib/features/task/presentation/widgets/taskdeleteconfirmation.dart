@@ -5,7 +5,7 @@ import '../../../../../gen/assets.gen.dart';
 import '../../../../../utils/constants/color_constants.dart';
 import '../../../../../utils/helpers/helpers.dart';
 import '../../../../componenets/custom_button.dart';
-import '../../../../core/instance/logger.dart';
+import '../../../../core/config/logger.dart';
 
 class TaskDeleteConfirmation {
   const TaskDeleteConfirmation._();

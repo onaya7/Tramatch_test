@@ -84,10 +84,10 @@ class WelcomeView extends StatelessWidget {
                       const Text(
                         'Let\'s Get Started...',
                         style: TextStyle(
-                            color: ColorConstants.grey700,
-                            fontSize: 17.32,
-                            fontWeight: FontWeight.w400,
-                            letterSpacing: -0.19),
+                          color: ColorConstants.grey700,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400,
+                        ),
                       ),
                       const SizedBox(
                         height: 18,

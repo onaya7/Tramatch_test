@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:toastification/toastification.dart';
 
-import '../../core/instance/logger.dart';
-import '../../injection_container.dart';
+import '../../core/config/logger.dart';
+import '../../core/injection/sl.dart';
 import '../constants/color_constants.dart';
 
 class Helpers {
   //UI helper functions------------------------------------------------------------------------------------------------
-  static void showToast(BuildContext context, String status, String message) {
+  static void showToast(String status, String message) {
+    final context =
+        getIt.call<GlobalKey<NavigatorState>>().currentContext as BuildContext;
+
     final statusToToastType = {
       'success': ToastificationType.success,
       'error': ToastificationType.error,
@@ -38,24 +41,25 @@ class Helpers {
     final icon = statusToIcon[status];
     if (toastType != null) {
       toastification.show(
-          context: context,
-          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
-          margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-          type: toastType,
-          style: ToastificationStyle.flatColored,
-          title: Text(
-            message,
-            style: const TextStyle(
-              color: ColorConstants.black,
-              fontSize: 10,
-              fontWeight: FontWeight.w600,
-            ),
+        context: context,
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
+        margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        type: toastType,
+        style: ToastificationStyle.flatColored,
+        title: Text(
+          message,
+          style: const TextStyle(
+            color: ColorConstants.black,
+            fontSize: 10,
+            fontWeight: FontWeight.w600,
           ),
-          alignment: Alignment.topCenter,
-          autoCloseDuration: const Duration(seconds: 3),
-          showProgressBar: false,
-          dragToClose: true,
-          icon: icon);
+        ),
+        alignment: Alignment.topCenter,
+        autoCloseDuration: const Duration(seconds: 3),
+        showProgressBar: false,
+        dragToClose: true,
+        icon: icon,
+      );
     }
   }
 

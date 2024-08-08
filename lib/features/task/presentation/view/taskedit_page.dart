@@ -7,7 +7,7 @@ import '../../../../componenets/custom_button.dart';
 import '../../../../componenets/custom_inputfield.dart';
 import '../../../../componenets/custom_inputfield_label.dart';
 import '../../../../componenets/custom_scaffold.dart';
-import '../../../../core/instance/logger.dart';
+import '../../../../core/config/logger.dart';
 import '../../../../utils/constants/color_constants.dart';
 import '../../../../utils/helpers/helpers.dart';
 import '../../../../utils/validators/validators.dart';
